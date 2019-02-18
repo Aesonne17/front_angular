@@ -1,0 +1,15 @@
+.top-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid black;
+}
+
+.search-input {
+  width: 100%;
+  margin: 16px;
+}
+
+.btn {
+  height: 32px;
+  margin: 16px 8px;
+}
