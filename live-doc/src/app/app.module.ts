@@ -7,6 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppState} from './AppState';
 import {SearchResultList} from './components/SearchResultList/SearchResultList';
 import {TopToolbar} from './components/TopToolbar/TopToolbar';
+import {SearchController} from './controllers/SearchController';
 import {Dispatcher} from './dispatcher';
 
 @NgModule({
@@ -22,7 +23,8 @@ import {Dispatcher} from './dispatcher';
     providers: [
         ActionFactory,
         AppState,
-        Dispatcher
+        Dispatcher,
+        SearchController
     ],
     bootstrap: [App]
 })
