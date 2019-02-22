@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {ActionFactory} from './actions/Action';
 import {App} from './app';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -19,6 +20,7 @@ import {Dispatcher} from './dispatcher';
         AppRoutingModule
     ],
     providers: [
+        ActionFactory,
         AppState,
         Dispatcher
     ],
