@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { App } from './app';
 import { TopToolbar } from './components/TopToolbar/TopToolbar';
 import { SearchResultList } from './components/SearchResultList/SearchResultList';
-import { Dispatcher } from './dispatcher'
-import { AppState } from './AppState'
+import { Dispatcher } from './dispatcher';
+import { AppState } from './AppState';
 
 @NgModule({
   declarations: [
