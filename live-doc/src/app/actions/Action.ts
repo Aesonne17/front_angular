@@ -79,7 +79,7 @@ export class ActionFactory {
     ) {
     }
 
-    createAction<TArgs, TAction extends Action<TArgs>>(ctor: IActionConstructor<TArgs, TAction>, args: TArgs): TAction {
+    createAction<TAction extends Action<TArgs>, TArgs>(ctor: IActionConstructor<TArgs, TAction>, args: TArgs): TAction {
         const instance: TAction = new ctor(
             this.dispatcher,
             this.appState,
