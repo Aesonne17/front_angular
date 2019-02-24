@@ -1,6 +1,7 @@
 import {EventEmitter, Inject, Injectable,} from '@angular/core';
 import {AppState} from '../AppState';
 import {Dispatcher} from '../dispatcher';
+import {SearchProxy} from "../data/proxy/SearchProxy";
 
 
 type ActionToEmitT<T> = [Action<T>, EventEmitter<Action<T>>];
@@ -21,7 +22,8 @@ export abstract class Action<TArgs> {
      */
     constructor(
         protected dispatcher: Dispatcher,
-        protected appState: AppState
+        protected appState: AppState,
+        protected searchProxy: SearchProxy
     ) {
     }
 
@@ -68,6 +70,7 @@ interface IActionConstructor<TArgs, TAction extends Action<TArgs>> {
     new(
         dispatcher: Dispatcher,
         appState: AppState,
+        searchProxy: SearchProxy
     ): TAction;
 }
 
@@ -76,6 +79,7 @@ export class ActionFactory {
     constructor(
         @Inject(Dispatcher) protected dispatcher: Dispatcher,
         @Inject(AppState) protected appState: AppState,
+        @Inject(SearchProxy) protected searchProxy: SearchProxy,
     ) {
     }
 
@@ -83,6 +87,7 @@ export class ActionFactory {
         const instance: TAction = new ctor(
             this.dispatcher,
             this.appState,
+            this.searchProxy
         );
         instance.startAsyncChain(args);
         instance.emitActionsChain();
