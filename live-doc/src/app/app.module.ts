@@ -9,6 +9,8 @@ import {SearchResultList} from './components/SearchResultList/SearchResultList';
 import {TopToolbar} from './components/TopToolbar/TopToolbar';
 import {SearchController} from './controllers/SearchController';
 import {Dispatcher} from './dispatcher';
+import {HttpClientModule} from "@angular/common/http";
+import {SearchProxy} from "./data/proxy/SearchProxy";
 
 @NgModule({
     declarations: [
@@ -17,14 +19,16 @@ import {Dispatcher} from './dispatcher';
         SearchResultList
     ],
     imports: [
+        AppRoutingModule,
         BrowserModule,
-        AppRoutingModule
+        HttpClientModule
     ],
     providers: [
         ActionFactory,
         AppState,
         Dispatcher,
-        SearchController
+        SearchController,
+        SearchProxy
     ],
     bootstrap: [App]
 })
